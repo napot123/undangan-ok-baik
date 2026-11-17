@@ -475,13 +475,18 @@ function tampilkanGeneratorLink() {
         const tr = document.createElement('tr');
 
         // 1. Buat Link Personal menggunakan URLSearchParams
+        // Masukkan nama tamu ke parameter 'nama' dan 'to' agar tampil nama tamu
         const params = new URLSearchParams();
-        params.set('to', t.instansi || t.nama_tamu);
+        params.set('nama', t.nama_tamu);
+        params.set('to', t.nama_tamu);
+        if (t.instansi) {
+            params.set('instansi', t.instansi);
+        }
         params.set('kategori', t.kategori || 'Universitas');
         const linkPersonal = `${baseUrl}?${params.toString()}`;
 
-        // 2. Buat Template Pesan WhatsApp
-        const pesanWa = `Halo Bapak/Ibu perwakilan ${t.instansi}.
+        // 2. Buat Template Pesan WhatsApp yang menyapa nama tamu
+        const pesanWa = `Halo Bapak/Ibu ${t.nama_tamu}${t.instansi ? ' (perwakilan ' + t.instansi + ')' : ''}.
 
 Kami mengundang Anda untuk menghadiri acara Edu Fair & Career Day 2026.
 

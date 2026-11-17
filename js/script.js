@@ -13,35 +13,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 1. Membaca Parameter URL menggunakan URLSearchParams
 function bacaParameterUrl() {
-    // Membaca query parameter seperti ?to=Universitas+Indonesia&kategori=Universitas
+    // Membaca query parameter seperti ?nama=Farid&instansi=PT+Mitra+Sejahtera&kategori=Perusahaan
     const urlParams = new URLSearchParams(window.location.search);
     
-    // Parameter 'to' untuk Nama Instansi / Tamu
-    const toParam = urlParams.get('to') || urlParams.get('nama') || '';
-    
-    // Parameter 'kategori' untuk Kategori Tamu
+    // Parameter nama tamu & instansi
+    const namaParam = urlParams.get('nama') || '';
+    const toParam = urlParams.get('to') || '';
+    const instansiParam = urlParams.get('instansi') || '';
     const kategoriParam = urlParams.get('kategori') || '';
 
     // Ambil elemen HTML target
     const coverNama = document.getElementById('coverNamaTamu');
+    const coverInstansi = document.getElementById('coverInstansiTamu');
     const coverKategori = document.getElementById('coverKategoriTamu');
+    
     const heroNama = document.getElementById('heroNamaInstansi');
+    const heroInstansi = document.getElementById('heroInstansiTamu');
     const heroKategori = document.getElementById('heroKategoriTamu');
 
     // Field di formulir RSVP
+    const inputNama = document.getElementById('rsvpNama');
     const inputInstansi = document.getElementById('rsvpInstansi');
     const selectKategori = document.getElementById('rsvpKategori');
 
-    // Jika ada parameter 'to', ganti teks di halaman
-    if (toParam) {
-        const decodedTo = decodeURIComponent(toParam);
-        if (coverNama) coverNama.textContent = decodedTo;
-        if (heroNama) heroNama.textContent = decodedTo;
-        if (inputInstansi) inputInstansi.value = decodedTo;
+    // Tentukan Nama Tamu (prioritaskan 'nama', fallback ke 'to')
+    let namaTamu = namaParam || toParam || '';
+    let namaInstansi = instansiParam || '';
+
+    // Jika parameter to diisi tapi bukan nama tamu, atau nama dan instansi
+    if (namaTamu) {
+        const decodedNama = decodeURIComponent(namaTamu);
+        if (coverNama) coverNama.textContent = decodedNama;
+        if (heroNama) heroNama.textContent = decodedNama;
+        if (inputNama) inputNama.value = decodedNama;
     } else {
-        const defaultName = "Bapak/Ibu Mitra & Tamu Kehormatan";
+        const defaultName = "Bapak/Ibu Tamu Undangan";
         if (coverNama) coverNama.textContent = defaultName;
         if (heroNama) heroNama.textContent = defaultName;
+    }
+
+    // Tampilkan Nama Instansi di bawah Nama Tamu jika ada
+    if (namaInstansi) {
+        const decodedInstansi = decodeURIComponent(namaInstansi);
+        if (coverInstansi) {
+            coverInstansi.textContent = decodedInstansi;
+            coverInstansi.style.display = 'block';
+        }
+        if (heroInstansi) {
+            heroInstansi.textContent = decodedInstansi;
+            heroInstansi.style.display = 'block';
+        }
+        if (inputInstansi) inputInstansi.value = decodedInstansi;
+    } else {
+        if (coverInstansi) coverInstansi.style.display = 'none';
+        if (heroInstansi) heroInstansi.style.display = 'none';
     }
 
     // Jika ada parameter 'kategori', ganti teks & pilih kategori di formulir
