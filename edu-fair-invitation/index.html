@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Resmi - Edu Fair & Career Day 2026</title>
+    <meta name="description" content="Undangan Resmi Edu Fair & Career Day 2026. Eksplorasi Peluang Pendidikan Tinggi & Karier Global.">
+    
+    <!-- Open Graph for WhatsApp & Social Media Preview -->
+    <meta property="og:title" content="Undangan Resmi - Edu Fair & Career Day 2026">
+    <meta property="og:description" content="Kami mengundang Bapak/Ibu untuk menghadiri ajang kolaborasi akbar Edu Fair & Career Day 2026.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts: Poppins & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/invitation.css">
+</head>
+<body>
+
+    <!-- ===================================================================
+         COVER / ENVELOPE MODAL (Buka Undangan)
+         =================================================================== -->
+    <div id="coverOverlay" class="cover-overlay">
+        <div class="cover-card">
+            <div class="cover-badge">
+                <span>✦ Official Digital Invitation ✦</span>
+            </div>
+
+            <div class="cover-logo-icon">
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                </svg>
+            </div>
+
+            <h1 class="cover-title">Edu Fair & Career Day 2026</h1>
+            <p class="cover-subtitle">Membuka Gerbang Masa Depan: Eksplorasi Peluang Pendidikan & Karier Global</p>
+
+            <div class="cover-recipient-box">
+                <div class="recipient-label">Kepada Yth. Bapak/Ibu:</div>
+                <div id="coverRecipientName" class="recipient-name">Bapak/Ibu Mitra & Tamu Kehormatan</div>
+                <div id="coverRecipientCategory" class="recipient-badge">Tamu Undangan</div>
+            </div>
+
+            <button type="button" id="openInvitationBtn" class="btn-open-invitation">
+                <span>Buka Undangan</span>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+         FLOATING AUDIO CONTROLS
+         =================================================================== -->
+    <div class="floating-controls">
+        <button type="button" id="audioToggleBtn" class="floating-btn" title="Nyalakan/Matikan Musik Latar" aria-label="Audio Toggle">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- ===================================================================
+         MAIN NAVIGATION BAR
+         =================================================================== -->
+    <header class="main-nav">
+        <div class="container nav-wrapper">
+            <a href="#hero" class="brand-logo">
+                <div class="brand-icon">EF</div>
+                <div>
+                    <div class="brand-text-title">Edu Fair & Career Day</div>
+                    <div class="brand-text-sub">TAHUN 2026</div>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#hero">Beranda</a></li>
+                    <li><a href="#acara">Waktu & Tempat</a></li>
+                    <li><a href="#rundown">Rundown</a></li>
+                    <li><a href="#benefit">Benefit Booth</a></li>
+                    <li><a href="#lokasi">Lokasi</a></li>
+                    <li><a href="#rsvp" class="nav-cta-btn">Konfirmasi Kehadiran</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===================================================================
+         HERO SECTION
+         =================================================================== -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-pill-badge">
+                <span class="hero-pill-dot"></span>
+                <span>Undangan Resmi • Edu Fair & Career Day 2026</span>
+            </div>
+
+            <h1 id="heroTitle" class="hero-title">
+                Edu Fair &amp; Career Day <span class="text-gold">2026</span>
+            </h1>
+
+            <p id="heroTheme" class="hero-theme">
+                "Membuka Gerbang Masa Depan: Eksplorasi Peluang Pendidikan Tinggi &amp; Karier Global"
+            </p>
+
+            <!-- Dynamic Recipient Card (URLSearchParams) -->
+            <div class="dynamic-guest-card">
+                <div class="guest-card-header">Yth. Tamu Kehormatan:</div>
+                <div id="heroGuestName" class="guest-card-name">Bapak/Ibu Rekan Terhormat</div>
+                <div id="heroGuestContact" class="guest-card-contact" style="display: none;"></div>
+                <div id="heroGuestCategory" class="guest-category-pill">Tamu Undangan</div>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="countdown-container">
+                <div class="countdown-title">Hitung Mundur Menuju Hari Acara</div>
+                <div class="countdown-grid">
+                    <div class="countdown-box">
+                        <div id="days" class="countdown-num">00</div>
+                        <div class="countdown-label">Hari</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div id="hours" class="countdown-num">00</div>
+                        <div class="countdown-label">Jam</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div id="minutes" class="countdown-num">00</div>
+                        <div class="countdown-label">Menit</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div id="seconds" class="countdown-num">00</div>
+                        <div class="countdown-label">Detik</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Action Buttons -->
+            <div class="hero-actions">
+                <a href="#rsvp" class="btn-primary">
+                    <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span>Konfirmasi Kehadiran (RSVP)</span>
+                </a>
+                <a href="#rundown" class="btn-secondary">
+                    <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    <span>Lihat Rangkaian Acara</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         EVENT TIME & PLACE HIGHLIGHTS
+         =================================================================== -->
+    <section id="acara" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Waktu &amp; Tempat</span>
+                <h2 class="section-title">Pelaksanaan Acara</h2>
+                <p class="section-subtitle">Simpan tanggal dan pastikan kehadiran delegasi Anda dalam agenda akbar ini.</p>
+            </div>
+
+            <div class="event-info-cards">
+                <!-- Tanggal -->
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="info-card-title">Hari &amp; Tanggal</h3>
+                    <p id="heroDate" class="info-card-text">Sabtu, 24 Januari 2026</p>
+                </div>
+
+                <!-- Jam -->
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="info-card-title">Waktu Pelaksanaan</h3>
+                    <p id="heroTime" class="info-card-text">08.00 - 15.00 WIB</p>
+                </div>
+
+                <!-- Lokasi -->
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="info-card-title">Lokasi Acara</h3>
+                    <p id="heroLocation" class="info-card-text">Grand Auditorium &amp; Hall SMK Telkom Jakarta</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         RUNDOWN TIMELINE SECTION
+         =================================================================== -->
+    <section id="rundown" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Jadwal Terstruktur</span>
+                <h2 class="section-title">Rangkaian Acara (Rundown)</h2>
+                <p class="section-subtitle">Susunan agenda komprehensif mulai dari pembukaan hingga temu mitra karier.</p>
+            </div>
+
+            <div id="rundownContainer" class="timeline-container">
+                <!-- Diisi dinamis oleh JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         BOOTH BENEFITS SECTION
+         =================================================================== -->
+    <section id="benefit" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Benefit Eksklusif</span>
+                <h2 class="section-title">Fasilitas &amp; Keuntungan Booth</h2>
+                <p class="section-subtitle">Berbagai fasilitas unggulan yang kami sediakan untuk menunjang promosi dan rekrutmen institusi Anda.</p>
+            </div>
+
+            <div id="benefitsContainer" class="benefits-grid">
+                <!-- Diisi dinamis oleh JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         VENUE & GOOGLE MAPS SECTION
+         =================================================================== -->
+    <section id="lokasi" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Petunjuk Lokasi</span>
+                <h2 class="section-title">Akses Menuju Lokasi Acara</h2>
+                <p class="section-subtitle">Gedung strategis dengan fasilitas parkir luas dan akses transportasi umum yang mudah.</p>
+            </div>
+
+            <div class="venue-wrapper">
+                <div class="venue-details">
+                    <h3 id="venueName" class="venue-name">Grand Auditorium &amp; Exhibition Hall SMK Telkom Jakarta</h3>
+                    <p id="venueAddress" class="venue-address">Jl. Daan Mogot KM. 11, Cengkareng, Jakarta Barat 11710</p>
+                    
+                    <ul class="venue-meta-list">
+                        <li class="venue-meta-item">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span>Area parkir mobil &amp; motor VIP tersedia</span>
+                        </li>
+                        <li class="venue-meta-item">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span>Dekat dengan Halte TransJakarta &amp; Stasiun KRL</span>
+                        </li>
+                        <li class="venue-meta-item">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span>Layanan Hospitality &amp; Security 24 Jam</span>
+                        </li>
+                    </ul>
+
+                    <a id="mapDirectionsBtn" href="https://maps.google.com/?q=SMK+Telkom+Jakarta" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width: 100%; justify-content: center;">
+                        <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                        <span>Buka Petunjuk Arah di Google Maps</span>
+                    </a>
+                </div>
+
+                <div class="map-frame-container">
+                    <iframe id="mapIframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.8668270560867!2d106.72620787586745!3d-6.148651060269383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7e51cfa8cf5%3A0x6b4c3bf5e55e880!2sSMK%20Telkom%20Jakarta!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Peta Lokasi Acara"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         RSVP FORM SECTION
+         =================================================================== -->
+    <section id="rsvp" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Konfirmasi Kehadiran</span>
+                <h2 class="section-title">Formulir RSVP</h2>
+                <p class="section-subtitle">Mohon konfirmasikan kesediaan kehadiran Bapak/Ibu demi kelancaran penyambutan dan akreditasi booth.</p>
+            </div>
+
+            <div class="rsvp-wrapper">
+                <!-- Form RSVP -->
+                <form id="rsvpForm">
+                    <div class="form-group">
+                        <label for="rsvpNama" class="form-label">Nama Lengkap / Perwakilan <span class="req">*</span></label>
+                        <input type="text" id="rsvpNama" class="form-control" placeholder="Contoh: Dr. Budi Santoso, M.Kom" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rsvpInstansi" class="form-label">Nama Instansi / Universitas / Perusahaan <span class="req">*</span></label>
+                        <input type="text" id="rsvpInstansi" class="form-control" placeholder="Contoh: Universitas Indonesia" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rsvpKategori" class="form-label">Kategori Tamu <span class="req">*</span></label>
+                        <select id="rsvpKategori" class="form-control" required>
+                            <option value="Universitas">Universitas / Perguruan Tinggi</option>
+                            <option value="Perusahaan">Perusahaan / Industri Mitra</option>
+                            <option value="Alumni">Alumni / Pembicara</option>
+                            <option value="Sekolah">Sekolah / Lembaga Pendidikan</option>
+                            <option value="Tamu Undangan">Tamu Kehormatan / Umum</option>
+                        </select>
+                    </div>
+
+                    <!-- Attendance Radio Cards -->
+                    <div class="form-group">
+                        <label class="form-label">Status Kehadiran <span class="req">*</span></label>
+                        <div class="attendance-radio-group">
+                            <label class="radio-card-label">
+                                <input type="radio" name="kehadiran" value="Hadir" checked>
+                                <div class="radio-card-content">
+                                    <span class="icon">✓</span>
+                                    <span class="label-text">Pasti Hadir</span>
+                                </div>
+                            </label>
+
+                            <label class="radio-card-label">
+                                <input type="radio" name="kehadiran" value="Tidak Hadir">
+                                <div class="radio-card-content">
+                                    <span class="icon">✕</span>
+                                    <span class="label-text">Tidak Hadir</span>
+                                </div>
+                            </label>
+
+                            <label class="radio-card-label">
+                                <input type="radio" name="kehadiran" value="Belum Pasti">
+                                <div class="radio-card-content">
+                                    <span class="icon">?</span>
+                                    <span class="label-text">Belum Pasti</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rsvpJumlah" class="form-label">Perkiraan Jumlah Delegasi Hadir</label>
+                        <input type="number" id="rsvpJumlah" class="form-control" min="1" max="10" value="1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rsvpCatatan" class="form-label">Pesan / Harapan untuk Panitia</label>
+                        <textarea id="rsvpCatatan" class="form-control" rows="3" placeholder="Tuliskan ucapan atau kebutuhan khusus booth jika ada..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit-rsvp">
+                        <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <span>Kirim Konfirmasi Kehadiran</span>
+                    </button>
+                </form>
+
+                <!-- State Kartu Sukses setelah RSVP -->
+                <div id="rsvpSuccessCard" class="rsvp-success-card">
+                    <div class="rsvp-success-icon">✓</div>
+                    <h3 style="font-size: 1.5rem; color: #ffffff; margin-bottom: 8px;">Terima Kasih!</h3>
+                    <p style="color: var(--slate-300); font-size: 0.95rem;">Konfirmasi kehadiran Anda telah berhasil kami simpan.</p>
+                    
+                    <div id="rsvpSuccessDetails"></div>
+
+                    <button type="button" id="resetRsvpBtn" class="btn-secondary" style="margin-top: 15px;">
+                        <span>Ubah Konfirmasi / Kirim Ulang</span>
+                    </button>
+                </div>
+
+                <!-- Live RSVP Feed -->
+                <div class="rsvp-feed-section">
+                    <div class="feed-title">
+                        <svg style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+                        </svg>
+                        <span>Daftar Konfirmasi &amp; Ucapan Terkini</span>
+                    </div>
+                    <div id="rsvpFeedList" class="feed-list">
+                        <!-- Diisi otomatis oleh JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         FOOTER
+         =================================================================== -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand-title">Edu Fair &amp; Career Day 2026</div>
+                    <p class="footer-brand-desc">
+                        Panggung kolaborasi terdepan bagi siswa, universitas, industri, dan alumni untuk bersama-sama mencetak talenta masa depan yang unggul dan berdaya saing global.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="footer-col-title">Hubungi Panitia</h4>
+                    <ul class="footer-contact-list">
+                        <li><span>Hotline: +62 822-6006-0508</span></li>
+                        <li><a href="mailto:panitia@edufair2026.id">panitia@edufair2026.id</a></li>
+                        <li><span>Instagram: @edufaircareerday</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-col-title">Akses Panitia</h4>
+                    <p style="font-size: 0.88rem; color: var(--slate-400); margin-bottom: 12px;">Khusus pengurus &amp; tim administrasi:</p>
+                    <a href="admin.html" class="admin-login-link">
+                        <svg style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+                        </svg>
+                        <span>Admin Dashboard</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 Panitia Edu Fair &amp; Career Day. Hak Cipta Dilindungi.</div>
+                <div>Dirancang dengan dedikasi untuk kesuksesan bersama.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/invitation.js"></script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Resmi - Edu Fair & Career Day 2026</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ===================================================================
+         COVER / ENVELOPE MODAL (BUKA UNDANGAN)
+         =================================================================== -->
+    <div id="coverOverlay" class="cover-overlay">
+        <div class="cover-card">
+            <div class="cover-badge">Undangan Resmi</div>
+
+            <div class="cover-icon">
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                </svg>
+            </div>
+
+            <h1 class="cover-title">Edu Fair &amp; Career Day 2026</h1>
+            <p class="cover-subtitle">Membuka Gerbang Masa Depan: Eksplorasi Peluang Pendidikan Tinggi &amp; Karier Global</p>
+
+            <div class="cover-guest-box">
+                <div class="cover-guest-label">Kepada Yth. Bapak/Ibu:</div>
+                <div id="coverNamaTamu" class="cover-guest-name">Bapak/Ibu Tamu Undangan</div>
+                <div id="coverKategoriTamu" class="cover-guest-badge">Tamu Kehormatan</div>
+            </div>
+
+            <button type="button" id="btnBukaUndangan" class="btn-open">
+                <span>Buka Undangan</span>
+                <svg style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+         NAVBAR
+         =================================================================== -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="nav-logo-badge">EF</span>
+                <span>Edu Fair 2026</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#hero">Beranda</a></li>
+                <li><a href="#informasi">Waktu &amp; Tempat</a></li>
+                <li><a href="#rundown">Rundown</a></li>
+                <li><a href="#benefit">Benefit Booth</a></li>
+                <li><a href="#lokasi">Lokasi</a></li>
+                <li><a href="#rsvp" class="btn-nav-rsvp">RSVP</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ===================================================================
+         HERO SECTION
+         =================================================================== -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-badge">✦ Official Invitation ✦</div>
+            <h1 class="hero-title">Edu Fair &amp; Career Day <span>2026</span></h1>
+            <p class="hero-theme">"Membuka Gerbang Masa Depan: Eksplorasi Peluang Pendidikan Tinggi &amp; Karier Global"</p>
+
+            <!-- Kartu Penerima Dinamis via URL Parameter -->
+            <div class="guest-target-card">
+                <div class="guest-target-label">Kepada Yth. Mitra / Perwakilan:</div>
+                <div id="heroNamaInstansi" class="guest-target-name">Bapak/Ibu Tamu Undangan</div>
+                <div id="heroKategoriTamu" class="guest-target-badge">Tamu Undangan</div>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="countdown-grid">
+                <div class="countdown-box">
+                    <div id="cdHari" class="num">00</div>
+                    <div class="label">Hari</div>
+                </div>
+                <div class="countdown-box">
+                    <div id="cdJam" class="num">00</div>
+                    <div class="label">Jam</div>
+                </div>
+                <div class="countdown-box">
+                    <div id="cdMenit" class="num">00</div>
+                    <div class="label">Menit</div>
+                </div>
+                <div class="countdown-box">
+                    <div id="cdDetik" class="num">00</div>
+                    <div class="label">Detik</div>
+                </div>
+            </div>
+
+            <!-- Tombol CTA -->
+            <div class="hero-cta">
+                <a href="#rsvp" class="btn-primary">Konfirmasi Kehadiran (RSVP)</a>
+                <a href="#rundown" class="btn-secondary">Lihat Rundown Acara</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         WAKTU & TEMPAT
+         =================================================================== -->
+    <section id="informasi" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Jadwal &amp; Tempat</span>
+                <h2 class="section-title">Pelaksanaan Acara</h2>
+            </div>
+
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg style="width: 26px; height: 26px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h4>Hari &amp; Tanggal</h4>
+                    <p>Sabtu, 24 Januari 2026</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg style="width: 26px; height: 26px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h4>Waktu Pelaksanaan</h4>
+                    <p>08.00 - 15.00 WIB</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg style="width: 26px; height: 26px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <h4>Lokasi Gedung</h4>
+                    <p>Grand Auditorium &amp; Hall SMK Telkom Jakarta</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         RUNDOWN ACARA
+         =================================================================== -->
+    <section id="rundown" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Agenda Kegiatan</span>
+                <h2 class="section-title">Rundown Acara</h2>
+            </div>
+
+            <div class="rundown-list">
+                <div class="rundown-item">
+                    <div class="rundown-time">08.00 - 08.45 WIB</div>
+                    <div class="rundown-agenda">Registrasi Delegasi Tamu &amp; Morning Welcome Coffee</div>
+                    <span class="rundown-badge">Registrasi</span>
+                </div>
+
+                <div class="rundown-item">
+                    <div class="rundown-time">08.45 - 09.30 WIB</div>
+                    <div class="rundown-agenda">Grand Opening Ceremony &amp; Sambutan Resmi Kepala Sekolah</div>
+                    <span class="rundown-badge">Seremonial</span>
+                </div>
+
+                <div class="rundown-item">
+                    <div class="rundown-time">09.30 - 12.00 WIB</div>
+                    <div class="rundown-agenda">Campus &amp; Corporate Booth Exhibition Sesi I</div>
+                    <span class="rundown-badge">Expo</span>
+                </div>
+
+                <div class="rundown-item">
+                    <div class="rundown-time">12.00 - 13.00 WIB</div>
+                    <div class="rundown-agenda">Istirahat, Sholat, &amp; Executive VIP Lunch</div>
+                    <span class="rundown-badge">Break</span>
+                </div>
+
+                <div class="rundown-item">
+                    <div class="rundown-time">13.00 - 14.15 WIB</div>
+                    <div class="rundown-agenda">Career Talkshow: "Peluang Karier Teknologi &amp; Studi Global"</div>
+                    <span class="rundown-badge">Talkshow</span>
+                </div>
+
+                <div class="rundown-item">
+                    <div class="rundown-time">14.15 - 15.00 WIB</div>
+                    <div class="rundown-agenda">Penyerahan Plakat Apresiasi Kemitraan &amp; Penutupan</div>
+                    <span class="rundown-badge">Penutupan</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         BENEFIT BOOTH
+         =================================================================== -->
+    <section id="benefit" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Fasilitas Mitra</span>
+                <h2 class="section-title">Benefit Booth Pameran</h2>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h4 class="benefit-title">Fasilitas Booth VIP</h4>
+                    <p class="benefit-desc">Meja representatif, kursi eksekutif, instalasi listrik, dan koneksi internet stabil sepanjang acara.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h4 class="benefit-title">Akses 1.000+ Audiens</h4>
+                    <p class="benefit-desc">Interaksi langsung dengan ribuan siswa kelas XII, calon mahasiswa, orang tua, dan alumni sekolah.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h4 class="benefit-title">Slot Presentasi Utama</h4>
+                    <p class="benefit-desc">Peluang memaparkan program unggulan universitas atau profil rekrutmen perusahaan di panggung utama.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h4 class="benefit-title">Publikasi &amp; Branding</h4>
+                    <p class="benefit-desc">Penempatan logo pada booklet digital resmi acara, media sosial, serta backdrop pameran megah.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h4 class="benefit-title">Database Calon Pelamar</h4>
+                    <p class="benefit-desc">Sistem buku tamu digital terintegrasi untuk tindak lanjut seleksi minat siswa atau rekrutmen.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h4 class="benefit-title">Layanan VIP Hospitality</h4>
+                    <p class="benefit-desc">Konsumsi prasmanan eksekutif siang, coffee break pagi, dan ruangan transit khusus delegasi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         GOOGLE MAPS LOKASI
+         =================================================================== -->
+    <section id="lokasi" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Arah Lokasi</span>
+                <h2 class="section-title">Peta Lokasi Acara</h2>
+            </div>
+
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 14px;">
+                Grand Auditorium SMK Telkom Jakarta — Jl. Daan Mogot KM. 11, Cengkareng, Jakarta Barat
+            </p>
+
+            <div class="maps-box">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.8668270560867!2d106.72620787586745!3d-6.148651060269383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7e51cfa8cf5%3A0x6b4c3bf5e55e880!2sSMK%20Telkom%20Jakarta!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps Lokasi Acara"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         FORM RSVP
+         =================================================================== -->
+    <section id="rsvp" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Konfirmasi</span>
+                <h2 class="section-title">Formulir RSVP Kehadiran</h2>
+            </div>
+
+            <div class="rsvp-card">
+                <!-- Form RSVP -->
+                <form id="formRsvp">
+                    <div class="form-group">
+                        <label class="form-label" for="rsvpNama">Nama Lengkap / Perwakilan *</label>
+                        <input type="text" id="rsvpNama" class="form-control" placeholder="Contoh: Budi Santoso, M.Kom" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="rsvpInstansi">Nama Instansi / Perusahaan / Kampus *</label>
+                        <input type="text" id="rsvpInstansi" class="form-control" placeholder="Contoh: Universitas Indonesia" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="rsvpKategori">Kategori Tamu *</label>
+                        <select id="rsvpKategori" class="form-control" required>
+                            <option value="Universitas">Universitas</option>
+                            <option value="Perusahaan">Perusahaan</option>
+                            <option value="Alumni">Alumni</option>
+                            <option value="Sekolah">Sekolah</option>
+                            <option value="Tamu Undangan">Tamu Undangan</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Status Kehadiran *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="kehadiran" value="Hadir" checked>
+                                <span>Hadir</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="kehadiran" value="Tidak Hadir">
+                                <span>Tidak Hadir</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="rsvpPesan">Pesan / Harapan untuk Panitia</label>
+                        <textarea id="rsvpPesan" class="form-control" rows="3" placeholder="Tulis pesan jika ada..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Kirim Konfirmasi Kehadiran</button>
+                </form>
+
+                <!-- Status Sukses Setelah Mengirim RSVP -->
+                <div id="rsvpSuccess" class="rsvp-success">
+                    <div class="rsvp-success-icon">✓</div>
+                    <h3 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 6px;">Terima Kasih!</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 14px;">Konfirmasi kehadiran Anda telah berhasil dicatat oleh sistem.</p>
+                    
+                    <div style="background: rgba(7, 13, 30, 0.6); padding: 16px; border-radius: 10px; margin-bottom: 20px; border: 1px solid rgba(212, 175, 55, 0.3);">
+                        <div id="successNama" style="font-weight: 700; color: #ffffff; font-size: 1.1rem;"></div>
+                        <div id="successStatus" style="font-weight: 700; font-size: 0.95rem; margin-top: 4px;"></div>
+                    </div>
+
+                    <button type="button" id="btnResetRsvp" class="btn-secondary" style="font-size: 0.85rem; padding: 8px 18px;">Ubah Konfirmasi</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================
+         FOOTER
+         =================================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <p style="font-weight: 600; color: #ffffff; margin-bottom: 6px;">Panitia Edu Fair &amp; Career Day 2026</p>
+            <p style="margin-bottom: 16px;">SMK Telkom Jakarta &bull; Hotline: 0822-6006-0508 &bull; Email: edufair@smktelkom-jkt.sch.id</p>
+            <p><a href="admin.html">Buka Halaman Admin (Dashboard) &rarr;</a></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>

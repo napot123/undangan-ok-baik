@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Edu Fair & Career Day 2026</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/admin.css">
+
+    <!-- External Libraries (PapaParse & Chart.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- ===================================================================
+         SIDEBAR NAVIGATION
+         =================================================================== -->
+    <aside class="admin-sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo-icon">EF</div>
+            <div>
+                <div class="sidebar-brand-title">EDU FAIR ADMIN</div>
+                <div class="sidebar-brand-subtitle">Panel Pengelolaan 2026</div>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section-title">Menu Utama</div>
+            
+            <a class="sidebar-link active" data-view="dashboard">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                <span>Dashboard</span>
+            </a>
+
+            <a class="sidebar-link" data-view="guests">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                <span>Data Tamu</span>
+            </a>
+
+            <a class="sidebar-link" data-view="import">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                <span>Import CSV</span>
+            </a>
+
+            <a class="sidebar-link" data-view="generator">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                <span>Generator Undangan</span>
+            </a>
+
+            <div class="nav-section-title">Laporan &amp; Pengaturan</div>
+
+            <a class="sidebar-link" data-view="logs">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>Riwayat Pengiriman</span>
+            </a>
+
+            <a class="sidebar-link" data-view="rsvp">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                <span>Data RSVP</span>
+            </a>
+
+            <a class="sidebar-link" data-view="settings">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <span>Pengaturan Acara</span>
+            </a>
+
+            <a id="logoutBtn" class="sidebar-link" style="color: #f87171; margin-top: 10px;">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                <span>Keluar (Logout)</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-profile-badge">
+                <div class="user-avatar">AD</div>
+                <div class="user-info">
+                    <div class="name">Administrator</div>
+                    <div class="role">Panitia Edu Fair 2026</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ===================================================================
+         MAIN CONTENT WRAPPER
+         =================================================================== -->
+    <main class="admin-main">
+        <!-- Topbar Header -->
+        <header class="admin-header">
+            <div class="header-left">
+                <button type="button" id="mobileToggleBtn" class="mobile-toggle-btn" aria-label="Toggle Sidebar">
+                    <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+                <h1 id="pageBreadcrumbTitle" class="page-breadcrumb-title">Dashboard Overview</h1>
+            </div>
+
+            <div class="header-right">
+                <a href="index.html" target="_blank" class="btn-view-invitation">
+                    <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                    <span>Lihat Web Undangan ↗</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- Dynamic Content Views -->
+        <div class="admin-content">
+
+            <!-- ===============================================================
+                 1. VIEW: DASHBOARD OVERVIEW
+                 =============================================================== -->
+            <div id="view-dashboard" class="content-view active">
+                <!-- 4 Stat Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <div class="stat-label">Total Tamu</div>
+                            <div id="statTotalGuests" class="stat-value">0</div>
+                        </div>
+                        <div class="stat-icon blue">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <div class="stat-label">Link Dibuka (Blast)</div>
+                            <div id="statOpenedBlast" class="stat-value">0</div>
+                        </div>
+                        <div class="stat-icon green">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <div class="stat-label">Belum Dikirim</div>
+                            <div id="statNotSent" class="stat-value">0</div>
+                        </div>
+                        <div class="stat-icon amber">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <div class="stat-label">RSVP Konfirmasi Hadir</div>
+                            <div id="statConfirmedRSVP" class="stat-value">0</div>
+                        </div>
+                        <div class="stat-icon purple">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts & Activity Grid -->
+                <div class="dashboard-grid">
+                    <!-- Left: Charts -->
+                    <div class="card-box">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Statistik Tamu &amp; Respons Kehadiran</h3>
+                                <div class="card-subtitle">Visualisasi distribusi kategori mitra dan status konfirmasi RSVP</div>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; min-height: 260px;">
+                            <div style="position: relative; height: 260px;">
+                                <p style="font-size: 0.82rem; color: #94a3b8; text-align: center; margin-bottom: 8px;">Kategori Tamu</p>
+                                <canvas id="categoryChart"></canvas>
+                            </div>
+                            <div style="position: relative; height: 260px;">
+                                <p style="font-size: 0.82rem; color: #94a3b8; text-align: center; margin-bottom: 8px;">Status RSVP</p>
+                                <canvas id="rsvpChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Aktivitas Terbaru (Per Lembar Panduan Soal) -->
+                    <div class="card-box">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Aktivitas Terbaru</h3>
+                                <div class="card-subtitle">Pemutakhiran log pengiriman dan RSVP</div>
+                            </div>
+                        </div>
+
+                        <div id="recentActivityList" class="activity-list">
+                            <!-- Diisi dinamis -->
+                        </div>
+
+                        <div style="margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 8px;">
+                            <button type="button" class="btn-primary-admin" onclick="switchView('generator')" style="width: 100%; text-align: center;">
+                                <span>Buka Panel Blast WhatsApp ↗</span>
+                            </button>
+                            <button type="button" class="btn-secondary-admin" onclick="switchView('import')" style="width: 100%; text-align: center;">
+                                <span>Unggah Data Tamu CSV ↗</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===============================================================
+                 2. VIEW: DATA TAMU
+                 =============================================================== -->
+            <div id="view-guests" class="content-view">
+                <div class="card-box">
+                    <div class="table-toolbar">
+                        <div class="toolbar-left">
+                            <div class="search-input-wrapper">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                                <input type="text" id="guestSearchInput" class="search-input" placeholder="Cari nama atau instansi...">
+                            </div>
+
+                            <select id="guestCategoryFilter" class="select-filter">
+                                <option value="all">Semua Kategori</option>
+                                <option value="Universitas">Universitas</option>
+                                <option value="Perusahaan">Perusahaan</option>
+                                <option value="Alumni">Alumni</option>
+                                <option value="Sekolah">Sekolah</option>
+                            </select>
+                        </div>
+
+                        <div class="toolbar-right">
+                            <button type="button" id="btnExportGuestsCsv" class="btn-secondary-admin">
+                                <svg style="width: 16px; height: 16px; display: inline-block; vertical-align: -2px; margin-right: 4px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                                <span>Export CSV</span>
+                            </button>
+
+                            <button type="button" id="btnAddGuest" class="btn-add-guest">
+                                <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                                <span>Tambah Tamu</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nama Tamu</th>
+                                    <th>Instansi</th>
+                                    <th>Kategori</th>
+                                    <th>Nomor WhatsApp</th>
+                                    <th>Status Undangan</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="guestTableBody">
+                                <!-- Diisi dinamis -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination-wrapper">
+                        <div id="guestCountInfo">Menampilkan data...</div>
+                        <div id="guestPaginationControls" class="pagination-controls"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===============================================================
+                 3. VIEW: IMPORT CSV (PAPAPARSE)
+                 =============================================================== -->
+            <div id="view-import" class="content-view">
+                <div class="card-box">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Unggah Berkas Tamu CSV</h3>
+                            <div class="card-subtitle">Format kolom standar: <code>id,nama_tamu,instansi,kategori,no_whatsapp</code></div>
+                        </div>
+                        <button type="button" id="btnDownloadSampleCsv" class="btn-secondary-admin">
+                            <span>Unduh Template data-tamu.csv</span>
+                        </button>
+                    </div>
+
+                    <div id="csvDropzone" class="upload-dropzone">
+                        <svg class="dropzone-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                        </svg>
+                        <div class="dropzone-title">Seret &amp; Lepaskan File CSV di Sini</div>
+                        <div class="dropzone-subtitle">atau klik untuk memilih file dari komputer Anda (Mendukung pemisah koma <code>,</code> maupun titik-koma <code>;</code>)</div>
+                        <input type="file" id="csvFileInput" class="file-input-hidden" accept=".csv">
+                    </div>
+
+                    <!-- Area Preview Tabel Sebelum Diimpor -->
+                    <div id="csvPreviewContainer" style="display: none; margin-top: 30px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <div>
+                                <h4 style="font-size: 1.1rem; color: #ffffff; font-weight: 700;">Pratinjau Data CSV</h4>
+                                <p id="csvRowCount" style="font-size: 0.85rem; color: var(--gold-400);"></p>
+                            </div>
+                            
+                            <div style="display: flex; align-items: center; gap: 16px;">
+                                <label style="font-size: 0.85rem; color: #cbd5e1; display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                                    <input type="radio" name="importMode" value="append" checked>
+                                    <span>Gabungkan (Append)</span>
+                                </label>
+                                <label style="font-size: 0.85rem; color: #cbd5e1; display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                                    <input type="radio" name="importMode" value="replace">
+                                    <span>Ganti Semua (Replace)</span>
+                                </label>
+                                <button type="button" id="btnExecuteImport" class="btn-primary-admin">
+                                    <span>Proses Import ke Data Tamu</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nama Tamu</th>
+                                        <th>Instansi</th>
+                                        <th>Kategori</th>
+                                        <th>No. WhatsApp</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="csvPreviewTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===============================================================
+                 4. VIEW: GENERATOR UNDANGAN & BLAST WA (SESUAI GAMBAR FOTO SOAL)
+                 =============================================================== -->
+            <div id="view-generator" class="content-view">
+                <!-- Banner Header Model Lembar Ujian -->
+                <div class="generator-banner">
+                    <h2>PANEL BLAST UNDANGAN (CSV)</h2>
+                    <p>Upload file data-tamu.csv untuk membuat tautan personal dan kirim via WhatsApp</p>
+                </div>
+
+                <!-- Konfigurasi URL Dasar & Template Pesan -->
+                <div class="generator-form-box">
+                    <div class="form-group-admin">
+                        <label class="form-label-admin">1. URL Dasar Web Undangan (Ganti dengan link hosting jika sudah online):</label>
+                        <input type="text" id="generatorBaseUrl" class="form-input-admin" placeholder="https://example.com/index.html">
+                    </div>
+
+                    <div class="form-group-admin">
+                        <label class="form-label-admin">2. Template Pesan Undangan WhatsApp (Gunakan parameter [NAMA_INSTANSI], [LINK_UNDANGAN]):</label>
+                        <textarea id="generatorWaTemplate" class="form-input-admin" rows="4"></textarea>
+                    </div>
+                </div>
+
+                <!-- Tabel Daftar Penerima Undangan (Persis Gambar Soal) -->
+                <div class="card-box">
+                    <div class="card-header">
+                        <h3 class="card-title">Daftar Penerima Undangan</h3>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Tamu</th>
+                                    <th>Instansi</th>
+                                    <th>Kategori</th>
+                                    <th>No. WhatsApp</th>
+                                    <th>Aksi Blast</th>
+                                </tr>
+                            </thead>
+                            <tbody id="generatorTableBody">
+                                <!-- Diisi dinamis -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===============================================================
+                 5. VIEW: RIWAYAT PENGIRIMAN
+                 =============================================================== -->
+            <div id="view-logs" class="content-view">
+                <div class="card-box">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Riwayat Pengiriman WhatsApp</h3>
+                            <div class="card-subtitle">
+                                Status dicatat sebagai <strong>"Dibuka untuk Pengiriman"</strong> saat tautan WhatsApp wa.me diakses.
+                            </div>
+                        </div>
+                        <button type="button" id="btnClearLogs" class="btn-secondary-admin">
+                            <span>Bersihkan Riwayat</span>
+                        </button>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Tanggal Pengiriman</th>
+                                    <th>Nama Tamu</th>
+                                    <th>Instansi</th>
+                                    <th>Nomor WhatsApp</th>
+                                    <th>Link Undangan</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="logsTableBody">
+                                <!-- Diisi dinamis -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===============================================================
+                 6. VIEW: DATA RSVP
+                 =============================================================== -->
+            <div id="view-rsvp" class="content-view">
+                <div class="card-box">
+                    <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; font-size: 0.85rem; color: #93c5fd;">
+                        <strong>Catatan untuk Presentasi / Demonstrasi:</strong> Sistem saat ini menggunakan sinkronisasi <code>localStorage</code> browser lokal. Data RSVP yang dikirim melalui formulir <code>index.html</code> pada peramban yang sama akan langsung terbaca dan terakumulasi di dashboard ini.
+                    </div>
+
+                    <div class="table-toolbar">
+                        <div class="toolbar-left">
+                            <select id="rsvpStatusFilter" class="select-filter">
+                                <option value="all">Semua Status Kehadiran</option>
+                                <option value="Hadir">Pasti Hadir</option>
+                                <option value="Tidak Hadir">Tidak Hadir</option>
+                                <option value="Belum Pasti">Belum Pasti</option>
+                            </select>
+                        </div>
+
+                        <div class="toolbar-right">
+                            <button type="button" id="btnExportRsvpCsv" class="btn-secondary-admin">
+                                <svg style="width: 16px; height: 16px; display: inline-block; vertical-align: -2px; margin-right: 4px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                                <span>Export Data RSVP (CSV)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Nama Perwakilan</th>
+                                    <th>Instansi</th>
+                                    <th>Kategori</th>
+                                    <th>Status Kehadiran</th>
+                                    <th>Waktu Konfirmasi</th>
+                                    <th>Catatan / Pesan</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rsvpTableBody">
+                                <!-- Diisi dinamis -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===============================================================
+                 7. VIEW: PENGATURAN INFORMASI ACARA
+                 =============================================================== -->
+            <div id="view-settings" class="content-view">
+                <div class="card-box" style="max-width: 900px;">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Pengaturan Informasi Acara</h3>
+                            <div class="card-subtitle">Perubahan pada form ini akan langsung mengubah informasi di halaman undangan digital (index.html).</div>
+                        </div>
+                        <button type="button" id="btnResetSettings" class="btn-secondary-admin">
+                            <span>Reset ke Default</span>
+                        </button>
+                    </div>
+
+                    <form id="eventSettingsForm">
+                        <div class="form-group-admin">
+                            <label class="form-label-admin">Nama Acara</label>
+                            <input type="text" id="setNamaAcara" class="form-input-admin" required>
+                        </div>
+
+                        <div class="form-group-admin">
+                            <label class="form-label-admin">Tema Acara</label>
+                            <input type="text" id="setTemaAcara" class="form-input-admin" required>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                            <div class="form-group-admin">
+                                <label class="form-label-admin">Tanggal Pelaksanaan (YYYY-MM-DD)</label>
+                                <input type="date" id="setTanggal" class="form-input-admin" required>
+                            </div>
+                            <div class="form-group-admin">
+                                <label class="form-label-admin">Teks Format Tanggal (Tampil di Web)</label>
+                                <input type="text" id="setTanggalFormat" class="form-input-admin" placeholder="Sabtu, 24 Januari 2026" required>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                            <div class="form-group-admin">
+                                <label class="form-label-admin">Jam / Waktu Acara</label>
+                                <input type="text" id="setJam" class="form-input-admin" placeholder="08.00 - 15.00 WIB" required>
+                            </div>
+                            <div class="form-group-admin">
+                                <label class="form-label-admin">Nama Gedung / Ruang Acara</label>
+                                <input type="text" id="setLokasi" class="form-input-admin" placeholder="Grand Auditorium SMK Telkom Jakarta" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group-admin">
+                            <label class="form-label-admin">Alamat Lengkap Lokasi</label>
+                            <input type="text" id="setAlamat" class="form-input-admin" placeholder="Jl. Daan Mogot KM. 11, Jakarta Barat" required>
+                        </div>
+
+                        <div class="form-group-admin">
+                            <label class="form-label-admin">URL Google Maps Embed (iframe src)</label>
+                            <input type="text" id="setLinkMaps" class="form-input-admin" required>
+                        </div>
+
+                        <div class="form-group-admin">
+                            <label class="form-label-admin">Deskripsi Singkat Acara</label>
+                            <textarea id="setDeskripsi" class="form-input-admin" rows="3" required></textarea>
+                        </div>
+
+                        <div class="form-group-admin">
+                            <label class="form-label-admin">Template Pesan WhatsApp Default</label>
+                            <textarea id="setWaTemplate" class="form-input-admin" rows="4" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary-admin" style="padding: 12px 28px;">
+                            <span>Simpan Perubahan Pengaturan</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ===================================================================
+         MODAL TAMBAH / EDIT DATA TAMU
+         =================================================================== -->
+    <div id="guestFormModal" class="modal-backdrop">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="guestModalTitle" class="modal-title">Tambah Tamu Baru</h3>
+                <button type="button" class="btn-close-modal">&times;</button>
+            </div>
+            
+            <form id="guestForm">
+                <div class="modal-body">
+                    <input type="hidden" id="guestFormId">
+
+                    <div class="form-group-admin">
+                        <label class="form-label-admin">Nama Tamu / PIC <span style="color: var(--gold-400);">*</span></label>
+                        <input type="text" id="guestFormNama" class="form-input-admin" placeholder="Contoh: Nur Noviana Sari" required>
+                    </div>
+
+                    <div class="form-group-admin">
+                        <label class="form-label-admin">Nama Instansi / Lembaga <span style="color: var(--gold-400);">*</span></label>
+                        <input type="text" id="guestFormInstansi" class="form-input-admin" placeholder="Contoh: Universitas Indonesia" required>
+                    </div>
+
+                    <div class="form-group-admin">
+                        <label class="form-label-admin">Kategori Tamu</label>
+                        <select id="guestFormKategori" class="form-input-admin">
+                            <option value="Universitas">Universitas</option>
+                            <option value="Perusahaan">Perusahaan</option>
+                            <option value="Alumni">Alumni</option>
+                            <option value="Sekolah">Sekolah</option>
+                            <option value="Tamu Undangan">Tamu Undangan</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group-admin">
+                        <label class="form-label-admin">Nomor WhatsApp (Awali 628... atau 08...)</label>
+                        <input type="text" id="guestFormWa" class="form-input-admin" placeholder="Contoh: 6282260060508">
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary-admin btn-cancel-modal">Batal</button>
+                    <button type="submit" class="btn-primary-admin">Simpan Data Tamu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
